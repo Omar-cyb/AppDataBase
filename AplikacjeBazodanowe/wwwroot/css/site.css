@@ -1,0 +1,182 @@
+﻿body {
+    margin: 0;
+    background-color: #DDD;
+    font-family: sans-serif, Verdana, Arial;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+nav {
+    background-color: #142127;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+nav a {
+    color: #FFF;
+    display: inline-block;
+    height: 100%;
+    padding: 15px;
+}
+
+.main-img {
+    position: relative;
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+}
+
+.title {
+    position: absolute;
+    color: white;
+    font-size: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 35%;
+    text-shadow: 0 0 8px #000000;
+}
+
+.container {
+    max-width: 800px;
+    margin:auto;
+    width: 100%;
+}
+
+.container > p {
+    text-align: center;
+    font-size: 1.25em;
+}
+
+.post {
+    margin: 5px;
+    position: relative;
+    display: flex;
+    height: 400px;
+    box-shadow: 0 0 5px #000;
+}
+
+.post img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.post-body {
+    margin: -5px 5px 0;
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.no-shadow{
+    box-shadow: none;
+}
+
+.comment-body {
+    font-size: 1.25em;
+}
+
+.comment-section {
+    padding: 2em 0;
+}
+
+.sub-comment-section {
+    padding: 0 0 1em 4em;
+}
+
+.sub-comment-section .sub-comment-body {
+    font-size: 1em;
+}
+
+.comment-body > .comment-timestamp, .sub-comment-body > .sub-comment-timestamp {
+    font-size: 75%;
+    opacity: 0.5;
+}
+
+.login-form-container {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form-container > form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+.login-form-container > form > input[type="submit"] {
+    max-width: 8em;
+}
+
+.login-form-container > form input {
+    font-size: 0.75em;
+    border-radius: 0.2em;
+
+}
+
+.login-form-container > form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.editpost-form-container {
+    padding: 2em;
+}
+.editpost-form-container > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.editpost-form-container > form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.editpost-form-container > form #editor {
+    background: #FFF;
+}
+
+.editpost-form-container input {
+    font-size: 1.25em;
+    border-radius: 0.2em;
+}
+
+.post-item {
+    background: #FFF;
+    border: 2px solid #333;
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1em;
+}
+
+.post-item img {
+    width: 20%;
+    height: auto;
+}
+
+footer {
+    text-align: center;
+    height: 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

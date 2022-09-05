@@ -1,0 +1,34 @@
+﻿@model HomeViewModel
+
+@{ 
+    ViewBag.Title = "AplikacjeBazodanowe";
+    ViewBag.Description = "AplikacjeBazodanowe";
+    ViewBag.Keywords = "blog podróż programowanie fotografia aplikacjebazodanowe";
+}
+
+
+<div class="main-img" style="background-image: url('@Model.CategoryImageUrl')">
+    <span class="title">@Model.Category</span>
+</div>
+
+<div class="container">
+    @if (!Model.Posts.Any())
+    {
+        <p>Nie ma żadnych publikacji w tej kategorii</p>
+    }
+    else
+    {
+        foreach (var post in Model.Posts)
+        {
+            <a class="post" asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">
+                @if (!String.IsNullOrEmpty(post.Image))
+                {
+                    var image_path = @Url.Action("Image", new { imageName = post.Image });
+                    <img src="@image_path" width="500" />
+                }
+                <span class="title">@post.Title</span>
+            </a>
+
+        }
+    }
+</div>

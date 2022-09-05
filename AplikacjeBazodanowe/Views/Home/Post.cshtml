@@ -1,0 +1,44 @@
+﻿@model Post
+
+@{ 
+    ViewBag.Title = Model.Title;
+    ViewBag.Description = Model.Description;
+    ViewBag.Keywords = $"{Model.Tags?.Replace(","," ")} {Model.Category}";
+}
+
+<div class="container">
+    <div class="post no-shadow">
+        @if (!String.IsNullOrEmpty(Model.Image))
+        {
+            var image_path = @Url.Action("Image", new { imageName = Model.Image });
+            <img src="@image_path" />
+            <span class="title">@Model.Title</span>
+        }
+    </div>
+    <div class="post-body">
+        @Html.Raw(Model.Body)
+    </div>
+    <div class="comment-section">
+        <h2>Komentarze</h2>
+        @foreach(var c in Model.MainComments)
+        { 
+            <p class="comment-body">
+                <span class="comment">@c.Message</span>
+                <span class="comment-timestamp">@c.Created</span>
+            </p>
+
+            <div class="sub-comment-section">
+                <h4>Odpowiedzi</h4>
+                @foreach (var sc in c.SubComments)
+                {
+                    <p class="sub-comment-body">
+                        <span class="sub-comment">@sc.Message</span>
+                        <span class="sub-comment-timestamp">@sc.Created</span> 
+                    </p>
+                }
+                <partial name="_MainComment" model="@new CommentViewModel { PostId = Model.Id, MainCommentId = c.Id}" />
+            </div>
+        }
+        <partial name="_MainComment" model="@new CommentViewModel { PostId = Model.Id, MainCommentId = 0}" />
+    </div>
+</div>

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Post>
+
+@{ 
+
+}
+
+<h2>Strona główna</h2>
+<p>Twoje publikację</p>
+<div>
+    <ul>
+        @foreach (var post in Model)
+        {
+            var image_path = @Url.Action("Image", "Home", new { imageName = post.Image });
+            <li class="post-item">
+                @post.Title
+                <img src="@image_path" />
+                <a asp-action="Edit" asp-route-id="@post.Id">Edytuj</a>
+                <a asp-action="Remove" asp-route-id="@post.Id">Usuń</a>
+            </li>
+        }
+    </ul>
+</div>

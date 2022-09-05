@@ -1,0 +1,14 @@
+﻿@model CommentViewModel
+
+@{ 
+    var caption = Model.MainCommentId > 0 ? "odpowiedź" : "kometarz";
+}
+
+<div>
+    <form method="post" asp-controller="Home" asp-action="Comment">
+        <input asp-for="PostId" type="hidden" />
+        <input asp-for="MainCommentId" type="hidden" />
+        <input asp-for="Message" />
+        <button type="submit">Zostaw @caption</button>
+    </form>
+</div>
